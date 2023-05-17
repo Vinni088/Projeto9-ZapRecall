@@ -1,9 +1,15 @@
 import styled from "styled-components"
 import logo from "./assets/logo.png"
 
-export default function Logo() {
+export default function Logo(props) {
+    
+    function login(){
+        let current = props.login_var;
+        props.setLogin_var(!current);
+    }
+
     return(
-        <CntLogo>
+        <CntLogo  onClick={() => login()} login_var={props.login_var} >
             <ImgLogo src={logo}/>
             <TextoLogo>ZapRecall</TextoLogo>
         </CntLogo>
@@ -11,8 +17,9 @@ export default function Logo() {
 }
 const CntLogo = styled.div`
     width: 300px;
-    height: 65px;
-    display: flex;
+    height: 60px;
+    display: ${props => props.login_var? "flex" :"none" };
+    margin-bottom: 45px;
     justify-content: center;
     align-items: center;
     z-index: 3;
