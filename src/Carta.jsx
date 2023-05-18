@@ -125,7 +125,7 @@ const Cover = styled.div`
     if(props.answerState == -1){
         return("red")
     } else if(props.answerState == 0){
-        return(#FF922E)
+        return("#FF922E")
     } else if(props.answerState == 1){
         return("green")
     }}};
