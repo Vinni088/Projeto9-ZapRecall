@@ -36,7 +36,7 @@ export default function Carta(props) {
             } else if (result == 0) {
                 setAnswerState(0);
                 setSymbol(quase);
-                SetDataTest("partial-icon");
+                SetDataTest("partial-btn");
 
                 let concluidas = props.pontuação;
                 props.setPontuação(concluidas+1);
@@ -114,6 +114,7 @@ const Cover = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 12px;
+    background: #FFFFFF;
     text-decoration: ${props => props.cardState == 4 ? "line-through": "none"};
     img {
         cursor: pointer;
@@ -131,7 +132,8 @@ const Pergunta = styled.div`
     display: ${props => props.cardState == 2 ? "flex": "none"};
     width: 100%;
     height: 100%;
-    justify-content: space-between;;
+    justify-content: space-between;
+    background: #FFFFD5;
     align-items: center;
     padding: 12px;
     div {
@@ -145,6 +147,7 @@ const Respostas = styled.div`
     
     width: 100%;
     height: 100%;
+    background: #FFFFD5;
     display: ${props => props.cardState == 3 ? "flex": "none"};
     flex-direction: column;
     justify-content: center;
