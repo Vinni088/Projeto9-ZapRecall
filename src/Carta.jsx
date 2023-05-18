@@ -60,8 +60,9 @@ export default function Carta(props) {
         }
     }
     return(
-        <CartaIndiv data-test="flashcard" cardState = {cardState} estados_expandidos = {estados_expandidos}>
+        <CartaIndiv cardState = {cardState} estados_expandidos = {estados_expandidos}>
             <Cover 
+            data-test="flashcard"
             answerState = {answerState}
             cardState = {cardState}
             estados_expandidos = {estados_expandidos}
@@ -70,13 +71,14 @@ export default function Carta(props) {
                 <img data-test={dataTest} onClick={() => EntreFases()} src={symbol}/>
             </Cover>
             <Pergunta 
-            
+            data-test="flashcard"
             cardState = {cardState}
             estados_expandidos = {estados_expandidos}>
                 <span data-test="flashcard-text">{props.pergunta} </span>
                 <div><img data-test="turn-btn" onClick={() => EntreFases()} src={seta2}/></div>
             </Pergunta>
             <Respostas 
+            data-test="flashcard"
             cardState = {cardState}
             estados_expandidos = {estados_expandidos}>
                 <span data-test="flashcard-text"> {props.resposta} </span>
