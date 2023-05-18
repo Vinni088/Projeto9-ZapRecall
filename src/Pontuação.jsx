@@ -1,9 +1,20 @@
+
 import styled from "styled-components"
 import Emojis from "./emojis"
+
 
 export default function Pontuação(props) {
     return(
         <Pontuação_Espaço data-test="footer" login_var={props.login_var}>
+            <Pontuação_msgs data-test="finish-text" concluidas = {props.pontuação}>
+                <Pontuação_l>
+                    <img src={props.final[1]}/>
+                    <span> {props.final[0]} </span>
+                </Pontuação_l>
+                <Pontuação_l>
+                    <span> {props.final[2]} </span>
+                </Pontuação_l>
+            </Pontuação_msgs>
             <div>{`${props.pontuação}`}/4 Concluídos</div>
 
             <Pontuação_emojis> 
@@ -43,38 +54,25 @@ const Pontuação_emojis = styled.div`
     gap: 5px;
 `
 
-/*
-let [final, setFinal] = useState([]);
-
-    if(props.concluidas == 4 || props.emojis.includes(erro)) {
-        setFinal("Putz...", triste, `Ainda faltam alguns...
-        Mas não desanime!`);
-    } else if(props.concluidas == 4 || !props.emojis.includes(erro)) {
-        setFinal("Parabéns!", oba, `Você não esqueceu de nenhum flashcard!`);
-    }
-
 const Pontuação_msgs = styled.div`
-    height: 44px;
+    height: 60px;
     width: 233px;
     display: ${props => props.concluidas == 4 ? "flex": "none"};
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 8px;
 `
 
 const Pontuação_l = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 8px;
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 `
 
-<Pontuação_msgs concluidas = {props.pontuação}>
-                <Pontuação_l>
-                    <img src={final[1]}/>
-                    <span> {final[0]} </span>
-                </Pontuação_l>
-                <Pontuação_l>
-                    <span> {final[2]} </span>
-                </Pontuação_l>
-            </Pontuação_msgs>
-*/

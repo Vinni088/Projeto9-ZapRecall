@@ -11,7 +11,7 @@ export default function App() {
   let [login_var, setLogin_var] = useState(false);
   let [pontuação, setPontuação] = useState(0);
   let [emojis, setEmojis] = useState([]);
-
+  let [final, setFinal] = useState([]);
 
   return (
     <CntApp>
@@ -30,8 +30,11 @@ export default function App() {
       setPontuação = {setPontuação}
       emojis = {emojis}
       setEmojis = {setEmojis}
+      final = {final}
+      setFinal = {setFinal}
       />
       <Pontuação
+      final = {final}
       login_var = {login_var}
       setLogin_var = {setLogin_var}
       pontuação = {pontuação}

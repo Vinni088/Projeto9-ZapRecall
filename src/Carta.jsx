@@ -1,4 +1,6 @@
 import { useState } from "react";
+import triste from "./assets/sad.png"
+import oba from "./assets/party.png"
 import erro from "./assets/icone_erro.png"
 import quase from "./assets/icone_quase.png"
 import certo from "./assets/icone_certo.png"
@@ -26,36 +28,58 @@ export default function Carta(props) {
                 setSymbol(erro);
                 SetDataTest("no-icon");
 
-                let concluidas = props.pontuação;
-                props.setPontuação(concluidas+1);
+                let concluidas = props.pontuação+1;
+                props.setPontuação(concluidas);
 
                 let emojis = [...props.emojis];
                 emojis.push(erro);
                 props.setEmojis(emojis);
+
+                if(concluidas == 4 && emojis.includes(erro)) {
+                    props.setFinal(["Putz...", triste, `Ainda faltam alguns...
+                    Mas não desanime!`]);
+                } else if (concluidas == 4) {
+                    props.setFinal(["Parabéns!", oba, `Você não esqueceu de nenhum flashcard!`]);
+                }
 
             } else if (result == 0) {
                 setAnswerState(0);
                 setSymbol(quase);
                 SetDataTest("partial-icon");
 
-                let concluidas = props.pontuação;
-                props.setPontuação(concluidas+1);
+                let concluidas = props.pontuação+1;
+                props.setPontuação(concluidas);
+                
 
                 let emojis = [...props.emojis];
                 emojis.push(quase);
                 props.setEmojis(emojis);
 
+                if(concluidas == 4 && emojis.includes(erro)) {
+                    props.setFinal(["Putz...", triste, `Ainda faltam alguns...
+                    Mas não desanime!`]);
+                } else if (concluidas == 4) {
+                    props.setFinal(["Parabéns!", oba, `Você não esqueceu de nenhum flashcard!`]);
+                }
+                
             } else if (result == 1) {
                 setAnswerState(1);
                 setSymbol(certo);
                 SetDataTest("zap-icon");
 
-                let concluidas = props.pontuação;
-                props.setPontuação(concluidas+1);
+                let concluidas = props.pontuação+1;
+                props.setPontuação(concluidas);
 
                 let emojis = [...props.emojis];
                 emojis.push(certo);
                 props.setEmojis(emojis);
+
+                if(concluidas == 4 && emojis.includes(erro)) {
+                    props.setFinal(["Putz...", triste, `Ainda faltam alguns...
+                    Mas não desanime!`]);
+                } else if (concluidas == 4) {
+                    props.setFinal(["Parabéns!", oba, `Você não esqueceu de nenhum flashcard!`]);
+                }
             }
         }
     }

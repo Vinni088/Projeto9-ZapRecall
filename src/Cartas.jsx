@@ -22,6 +22,8 @@ export default function Cartas(props) {
             setEmojis = {props.setEmojis}
             pergunta = {adress.question}
             resposta = {adress.answer}
+            final = {props.final}
+            setFinal = {props.setFinal}
             />)}
         </CardSpace>
         
