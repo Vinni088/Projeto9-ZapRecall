@@ -7,13 +7,9 @@ export default function Pontuação(props) {
     return(
         <Pontuação_Espaço data-test="footer" login_var={props.login_var}>
             <Pontuação_msgs data-test="finish-text" concluidas = {props.pontuação}>
-                <Pontuação_l>
                     <img src={props.final[1]}/>
-                    <span> {props.final[0]} </span>
-                </Pontuação_l>
-                <Pontuação_l>
-                    <span> {props.final[2]} </span>
-                </Pontuação_l>
+                      {props.final[0]} <br/>
+                      {props.final[2]} 
             </Pontuação_msgs>
             <div>{`${props.pontuação}`}/4 Concluídos</div>
 
@@ -58,21 +54,16 @@ const Pontuação_msgs = styled.div`
     height: 60px;
     width: 233px;
     display: ${props => props.concluidas == 4 ? "flex": "none"};
+    text-align: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-`
-
-const Pontuação_l = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    position: relative;
+    img {
+        position: absolute;
+        top: -4px;
+        left: 45px;
     }
 `
+
 
