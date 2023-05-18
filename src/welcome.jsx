@@ -13,7 +13,7 @@ export default function Welcome(props) {
         <WelcomeScreenContainer login_var={props.login_var} >
             <WelcomeImg   src={logo}/>
             <WelcomeText> ZapRecall </WelcomeText>
-            <WelcomeButton onClick={() => login()}> Iniciar Recall! </WelcomeButton>
+            <WelcomeButton data-test="start-btn" onClick={() => login()}> Iniciar Recall! </WelcomeButton>
         </WelcomeScreenContainer>
     );
 }

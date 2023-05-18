@@ -49,5 +49,8 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+button:hover {
+	cursor: pointer;
+}
 `
 export default Reset

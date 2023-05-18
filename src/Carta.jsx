@@ -10,6 +10,7 @@ export default function Carta(props) {
     let [symbol, setSymbol] = useState(seta1);
     let [cardState, setCardState] = useState(1);
     let [answerState, setAnswerState] = useState(4);
+    let [dataTest, SetDataTest] = useState("play-btn");
     let estados_pergunta = [1,4];
     let estados_expandidos = [2,3];
     function EntreFases(result) {
@@ -23,6 +24,7 @@ export default function Carta(props) {
             if (result == -1) {
                 setAnswerState(-1);
                 setSymbol(erro);
+                SetDataTest("no-btn");
 
                 let concluidas = props.pontuação;
                 props.setPontuação(concluidas+1);
@@ -30,11 +32,11 @@ export default function Carta(props) {
                 let emojis = [...props.emojis];
                 emojis.push(erro);
                 props.setEmojis(emojis);
-                console.log(emojis)
 
             } else if (result == 0) {
                 setAnswerState(0);
                 setSymbol(quase);
+                SetDataTest("partial-btn");
 
                 let concluidas = props.pontuação;
                 props.setPontuação(concluidas+1);
@@ -42,11 +44,11 @@ export default function Carta(props) {
                 let emojis = [...props.emojis];
                 emojis.push(quase);
                 props.setEmojis(emojis);
-                console.log(emojis)
 
             } else if (result == 1) {
                 setAnswerState(1);
                 setSymbol(certo);
+                SetDataTest("zap-btn");
 
                 let concluidas = props.pontuação;
                 props.setPontuação(concluidas+1);
@@ -54,35 +56,34 @@ export default function Carta(props) {
                 let emojis = [...props.emojis];
                 emojis.push(certo);
                 props.setEmojis(emojis);
-                console.log(emojis)
             }
         }
     }
     return(
-        <CartaIndiv cardState = {cardState} estados_expandidos = {estados_expandidos}>
+        <CartaIndiv data-test="flashcard" cardState = {cardState} estados_expandidos = {estados_expandidos}>
             <Cover 
             answerState = {answerState}
             cardState = {cardState}
             estados_expandidos = {estados_expandidos}
             estados_pergunta = {estados_pergunta}> 
-                <span> Pergunta {`${props.indice+1}`} </span>
-                <img onClick={() => EntreFases()} src={symbol}/>
+                <span data-test="flashcard-text"> Pergunta {`${props.indice+1}`} </span>
+                <img data-test={dataTest} onClick={() => EntreFases()} src={symbol}/>
             </Cover>
             <Pergunta 
             
             cardState = {cardState}
             estados_expandidos = {estados_expandidos}>
-                <span>{props.pergunta} </span>
-                <div><img onClick={() => EntreFases()} src={seta2}/></div>
+                <span data-test="flashcard-text">{props.pergunta} </span>
+                <div><img data-test="turn-btn" onClick={() => EntreFases()} src={seta2}/></div>
             </Pergunta>
             <Respostas 
             cardState = {cardState}
             estados_expandidos = {estados_expandidos}>
-                <span> {props.resposta} </span>
+                <span data-test="flashcard-text"> {props.resposta} </span>
                 <Respostas_opçoes>
-                    <Resposta_ruim onClick={() => EntreFases(-1)} > Não lembrei </Resposta_ruim>
-                    <Resposta_media onClick={() => EntreFases(0)} > Quase não lembrei </Resposta_media>
-                    <Resposta_boa onClick={() => EntreFases(1)} > Zap! </Resposta_boa>
+                    <Resposta_ruim data-test="no-btn" onClick={() => EntreFases(-1)} > Não lembrei </Resposta_ruim>
+                    <Resposta_media data-test="btn"  onClick={() => EntreFases(0)} > Quase não lembrei </Resposta_media>
+                    <Resposta_boa data-test="zap-btn"  onClick={() => EntreFases(1)} > Zap! </Resposta_boa>
                 </Respostas_opçoes>
             </Respostas>
         </CartaIndiv>
@@ -114,6 +115,9 @@ const Cover = styled.div`
     align-items: center;
     padding: 12px;
     text-decoration: ${props => props.cardState == 4 ? "line-through": "none"};
+    img {
+        cursor: pointer;
+    }
     color: ${props =>  {
     if(props.answerState == -1){
         return("red")

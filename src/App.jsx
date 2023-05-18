@@ -4,7 +4,6 @@ import Welcome from './welcome.jsx'
 import Cartas from './Cartas.jsx'
 import { useState } from 'react'
 import Logo from './Logo.jsx'
-import './assets/Reset.css'
 
 
 export default function App() {
