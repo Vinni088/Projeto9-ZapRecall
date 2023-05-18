@@ -24,7 +24,7 @@ export default function Carta(props) {
             if (result == -1) {
                 setAnswerState(-1);
                 setSymbol(erro);
-                SetDataTest("no-btn");
+                SetDataTest("no-icon");
 
                 let concluidas = props.pontuação;
                 props.setPontuação(concluidas+1);
@@ -36,7 +36,7 @@ export default function Carta(props) {
             } else if (result == 0) {
                 setAnswerState(0);
                 setSymbol(quase);
-                SetDataTest("partial-btn");
+                SetDataTest("partial-icon");
 
                 let concluidas = props.pontuação;
                 props.setPontuação(concluidas+1);
@@ -48,7 +48,7 @@ export default function Carta(props) {
             } else if (result == 1) {
                 setAnswerState(1);
                 setSymbol(certo);
-                SetDataTest("zap-btn");
+                SetDataTest("zap-icon");
 
                 let concluidas = props.pontuação;
                 props.setPontuação(concluidas+1);

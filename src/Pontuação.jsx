@@ -22,7 +22,7 @@ const Pontuação_Espaço = styled.div`
     min-height: 70px;
     background: #FFFFFF;
     display: ${props => props.login_var? "flex" :"none" };
-    display: flex;
+    display: ${props => props.login_var? "flex" :"none" };
     gap: 10px;
     flex-direction: column;
     justify-content: center;
