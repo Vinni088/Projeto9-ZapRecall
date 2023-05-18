@@ -36,7 +36,7 @@ export default function Carta(props) {
             } else if (result == 0) {
                 setAnswerState(0);
                 setSymbol(quase);
-                SetDataTest("partial-btn");
+                SetDataTest("partial-icon");
 
                 let concluidas = props.pontuação;
                 props.setPontuação(concluidas+1);
@@ -125,7 +125,7 @@ const Cover = styled.div`
     if(props.answerState == -1){
         return("red")
     } else if(props.answerState == 0){
-        return("yellow")
+        return(#FF922E)
     } else if(props.answerState == 1){
         return("green")
     }}};
