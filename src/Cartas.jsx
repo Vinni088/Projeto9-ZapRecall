@@ -36,5 +36,5 @@ const CardSpace = styled.div`
     flex-direction: column;
     border-radius: 5px;
     gap: 25px;
-    margin-bottom: 100px;
+    margin-bottom: 110px;
 `

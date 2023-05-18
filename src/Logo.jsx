@@ -19,7 +19,7 @@ const CntLogo = styled.div`
     width: 300px;
     height: 60px;
     display: ${props => props.login_var? "flex" :"none" };
-    margin-bottom: 45px;
+    margin-bottom: 30px;
     justify-content: center;
     align-items: center;
     z-index: 3;
