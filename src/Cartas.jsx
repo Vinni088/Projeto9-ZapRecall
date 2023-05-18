@@ -1,9 +1,28 @@
 import styled from "styled-components"
+import Carta from "./Carta";
+import cards from "./deck1"
 
 export default function Cartas(props) {
+    let baralho = [...cards];
+    function comparador() {
+        let meio = 0.5;
+        return Math.random() - meio;
+    }
+    baralho.sort(comparador);
+    baralho = baralho.slice(0, 4);
     return(
         <CardSpace login_var={props.login_var}>
-            <Carta> teste </Carta>
+            {baralho.map((adress, indice) => 
+            <Carta
+            key = {indice}
+            indice = {indice}
+            pontuação = {props.pontuação}
+            setPontuação = {props.setPontuação}
+            emojis = {props.emojis}
+            setEmojis = {props.setEmojis}
+            pergunta = {adress.question}
+            resposta = {adress.answer}
+            />)}
         </CardSpace>
         
     );
@@ -11,17 +30,9 @@ export default function Cartas(props) {
 
 const CardSpace = styled.div`
     width: 300px;
-    height: 60px;
     display: ${props => props.login_var? "flex" :"none" };
-    background: #FFFFFF;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
     border-radius: 5px;
-`
-
-const Carta = styled.div`
-    width: 300px;
-    height: 65px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
+    gap: 25px;
+    margin-bottom: 100px;
 `
