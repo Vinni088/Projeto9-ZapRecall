@@ -84,7 +84,7 @@ export default function Carta(props) {
                 <span data-test="flashcard-text"> {props.resposta} </span>
                 <Respostas_opçoes>
                     <Resposta_ruim data-test="no-btn" onClick={() => EntreFases(-1)} > Não lembrei </Resposta_ruim>
-                    <Resposta_media data-test="btn"  onClick={() => EntreFases(0)} > Quase não lembrei </Resposta_media>
+                    <Resposta_media data-test="partial-btn"  onClick={() => EntreFases(0)} > Quase não lembrei </Resposta_media>
                     <Resposta_boa data-test="zap-btn"  onClick={() => EntreFases(1)} > Zap! </Resposta_boa>
                 </Respostas_opçoes>
             </Respostas>
